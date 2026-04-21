@@ -5,6 +5,8 @@
 package com.mycompany.bomberman;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 /**
  *
@@ -13,8 +15,11 @@ import javafx.stage.Stage;
 public class Bomberman extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/vista/MenuPrincipal.fxml"));
+        Scene scene = new Scene(loader.load());
         stage.setTitle("Bomberman");
+        stage.setScene(scene);
         stage.show();
     }
 

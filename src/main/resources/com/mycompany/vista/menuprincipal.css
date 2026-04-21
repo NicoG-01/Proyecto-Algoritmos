@@ -1,0 +1,32 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+* {
+    -fx-font-family: 'Courier New';
+}
+
+.root {
+    -fx-background-color: #000000;
+}
+
+.titulo {
+    -fx-font-size: 48px;
+    -fx-text-fill: #FFD700;
+    -fx-effect: dropshadow(gaussian, #FF4500, 10, 0.5, 0, 0);
+}
+
+.boton {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2px;
+    -fx-padding: 10 30 10 30;
+    -fx-cursor: hand;
+}
+
+.boton:hover {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #000000;
+}
