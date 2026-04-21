@@ -10,4 +10,5 @@ package com.mycompany.modelo;
  */
 public class Jugador {
     private int posicion_x;
+    private int posicion_y;
 }
