@@ -8,16 +8,12 @@ package com.mycompany.modelo;
  *
  * @author ASUS
  */
-public class Jugador {
-
+public class Bomba {
     private int posicion_x;
     private int posicion_y;
-    private String nombre;
-    private char teclas[];
-    private int velocidad;
-    private int vida;
-    private int max_bomba;
-    private int rango_bomba;
-
+    private int rango;
+    private int temporizador;
+    private Jugador dueño;
+    
     
 }
