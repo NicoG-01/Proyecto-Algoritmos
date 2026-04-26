@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -11,9 +12,9 @@
    <top>
       <HBox alignment="CENTER" prefHeight="79.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Guardar" />
-            <Button mnemonicParsing="false" text="Cargar" />
-            <Button mnemonicParsing="false" text="Limpiar" />
+            <Button mnemonicParsing="false" onAction="#guardarMapa" text="Guardar" />
+            <Button mnemonicParsing="false" onAction="#cargarMapa" text="Cargar" />
+            <Button mnemonicParsing="false" onAction="#limpiarMapa" text="Limpiar" />
             <Button mnemonicParsing="false" text="Jugar" />
          </children>
          <BorderPane.margin>
@@ -21,10 +22,16 @@
          </BorderPane.margin></HBox>
    </top>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="---Paredes---" />
+            <ToggleButton fx:id="btnVacio" mnemonicParsing="false" text="Vacio" />
+            <ToggleButton fx:id="btnParedFija" mnemonicParsing="false" text="Fijo" />
+            <ToggleButton fx:id="btnParedDestructible" mnemonicParsing="false" text="Destructible" />
             <Label text="---Items---" />
+            <ToggleButton fx:id="btnItemBomba" mnemonicParsing="false" text="Bomba" />
+            <ToggleButton fx:id="btnItemLlama" mnemonicParsing="false" text="Llama" />
+            <ToggleButton fx:id="btnItemVelocidad" mnemonicParsing="false" text="Velocidad" />
          </children></VBox>
    </left>
 </BorderPane>

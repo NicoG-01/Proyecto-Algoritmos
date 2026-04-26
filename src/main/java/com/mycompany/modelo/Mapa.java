@@ -4,6 +4,10 @@
  */
 package com.mycompany.modelo;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author diego
@@ -18,13 +22,9 @@ public class Mapa {
         crea_Mapa();
     }
     
-    private void crea_Mapa(){
-        for (int f = 0; f < dimension.length; f++){
-            for (int c = 0; c < dimension[f].length; c++){
-                dimension[f][c] = new Celda();
-            }
-        }
-    }
+    public String getNombre(){
+        return this.nombre;
+    }    
     
     public int getFilas(){
         return this.dimension.length;
@@ -36,5 +36,31 @@ public class Mapa {
     
     public Celda getCelda(int fila, int columna){
         return this.dimension[fila][columna];
+    }
+    
+    private void crea_Mapa(){
+        for (int f = 0; f < dimension.length; f++){
+            for (int c = 0; c < dimension[f].length; c++){
+                dimension[f][c] = new Celda();
+            }
+        }
+    }
+    
+    public void guardar_Mapa(String ruta) throws IOException{
+        BufferedWriter bw = new BufferedWriter(new FileWriter(ruta));
+        
+        bw.write(nombre + "," + getFilas() + "," + getColumnas());
+        bw.newLine();
+        
+        for (int f = 0; f < getFilas(); f++){
+            for (int c = 0; c < getColumnas(); c++){
+                bw.write(dimension[f][c].getTipoCelda().ordinal() + "");
+                if (c < dimension[f].length - 1)
+                    bw.write(",");
+            }
+            bw.newLine();
+        }
+        
+        bw.close();
     }
 }

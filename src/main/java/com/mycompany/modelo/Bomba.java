@@ -14,6 +14,4 @@ public class Bomba {
     private int rango;
     private int temporizador;
     private Jugador dueño;
-    
-    
 }

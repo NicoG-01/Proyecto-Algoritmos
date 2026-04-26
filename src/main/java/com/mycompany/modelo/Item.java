@@ -8,8 +8,7 @@ package com.mycompany.modelo;
  *
  * @author JosephDG
  */
-public class Item {
-    private int posicion_x;
-    private int posicion_y;
-    private char tipo;    
+public abstract class Item {
+    public abstract void aplicarEfecto(Jugador pJugador);
+    
 }
