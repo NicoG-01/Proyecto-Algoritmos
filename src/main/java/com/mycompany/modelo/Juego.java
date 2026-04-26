@@ -14,6 +14,7 @@ public class Juego {
     private Jugador jugador2;
     private int tiempo;
     private char estado;   
+    
     public Mapa getMapa() {
         return mapa;
     }
