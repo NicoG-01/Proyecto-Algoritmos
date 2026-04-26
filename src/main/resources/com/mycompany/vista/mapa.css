@@ -1,0 +1,59 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 26/04/2026, 3:12:49 p. m.
+    Author     : ASUS
+*/
+
+* {
+    -fx-font-family: 'Courier New';
+}
+ 
+.root {
+    -fx-background-color: #000000;
+}
+ 
+.titulo {
+    -fx-font-size: 48px;
+    -fx-text-fill: #FFD700;
+    -fx-effect: dropshadow(gaussian, #FF4500, 10, 0.5, 0, 0);
+} 
+
+.subtitulo {
+    -fx-font-size: 20px;
+    -fx-text-fill: #FFD700;
+    -fx-effect: dropshadow(gaussian, #FF4500, 10, 0.5, 0, 0);
+}
+
+.boton {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2px;
+    -fx-padding: 10 30 10 30;
+    -fx-cursor: hand;
+}
+
+.boton:hover {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #000000;
+}
+
+.text-field {
+    -fx-background-color: #0d0d0d;
+    -fx-text-fill: #FFD700;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2px;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 13px;
+    -fx-padding: 6 10 6 10;
+    -fx-prompt-text-fill: #806600;
+}
+ 
+.text-field:focused {
+    -fx-border-color: #FF8C00;
+    -fx-effect: dropshadow(gaussian, #FF8C00, 8, 0.4, 0, 0);
+}
