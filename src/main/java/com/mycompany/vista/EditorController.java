@@ -20,7 +20,10 @@ import com.mycompany.modelo.Sesion;
     import java.util.ResourceBundle;
     import javafx.event.ActionEvent;
     import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
     import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
     import javafx.scene.canvas.Canvas;
     import javafx.scene.canvas.GraphicsContext;
     import javafx.scene.control.ToggleButton;
@@ -28,6 +31,7 @@ import com.mycompany.modelo.Sesion;
     import javafx.scene.layout.BorderPane;
     import javafx.scene.paint.Color;
     import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
     /**
      * FXML Controller class
@@ -212,6 +216,18 @@ import com.mycompany.modelo.Sesion;
         private void limpiarMapa(ActionEvent event){
             editor.limpiarMapa();
             dibujarMapa();
+        }
+        
+        @FXML
+        private void jugar(ActionEvent event) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/vista/Juego.fxml"));
+                Scene scene = new Scene(loader.load());
+                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
         }
         
     }

@@ -6,6 +6,7 @@ package com.mycompany.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.input.KeyCode;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Jugador {
     private int posicion_x;
     private int posicion_y;
     private String nombre;
-    private char teclas[];
+    private KeyCode[] teclas = new KeyCode[5];
     private int velocidad;
     private int vida;
     private int max_bomba;
@@ -135,6 +136,10 @@ public class Jugador {
         
             return bomba;
         }
+    }
+    
+    public void setTeclas(KeyCode[] teclas){
+        this.teclas = teclas;
     }
 }
 

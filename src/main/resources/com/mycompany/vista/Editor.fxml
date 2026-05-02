@@ -15,7 +15,7 @@
             <Button mnemonicParsing="false" onAction="#guardarMapa" text="Guardar" />
             <Button mnemonicParsing="false" onAction="#cargarMapa" text="Cargar" />
             <Button mnemonicParsing="false" onAction="#limpiarMapa" text="Limpiar" />
-            <Button mnemonicParsing="false" text="Jugar" />
+            <Button mnemonicParsing="false" onAction="#jugar" text="Jugar" />
          </children>
          <BorderPane.margin>
             <Insets />
