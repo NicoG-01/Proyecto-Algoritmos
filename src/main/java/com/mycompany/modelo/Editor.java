@@ -18,6 +18,12 @@ public class Editor {
     private TipoCelda herramienta_actual;
     private Item item_actual;
     
+    public Editor(Mapa mapa){
+        this.mapa = mapa;
+        this.herramienta_actual = TipoCelda.VACIO;
+        this.item_actual = null;
+    }
+    
     public Editor(int filas, int columnas, String nombre){
         this.mapa = new Mapa(filas, columnas, nombre);
         this.herramienta_actual = TipoCelda.VACIO;

@@ -14,4 +14,72 @@ public class Bomba {
     private int rango;
     private int temporizador;
     private Jugador dueño;
+    
+    public Bomba(int x, int y, int rango, Jugador dueño){
+        this.posicion_x = x;
+        this.posicion_y = y;
+        this.rango = rango;
+        this.temporizador = 3;
+        this.dueño = dueño;
+    }
+    
+    public int getPosicion_x(){
+        return posicion_x;
+    }
+    
+    public int getPosicion_y(){
+        return posicion_y;
+    }
+    
+    public int getRango(){
+        return rango;
+    }
+    
+    public int getTemporizador(){
+        return temporizador;
+    }
+    
+    public Jugador getJugador(){
+        return dueño;
+    }
+    
+    public boolean bombaExplotada(){
+        return temporizador <= 0;
+    }
+    
+    public void actualizarTemp(){
+        if (temporizador > 0)
+            temporizador --;
+    }
+    
+    public void explotar(Mapa mapa){
+        int[][]direcciones = {
+            {0, -1},
+            {0, 1},
+            {-1, 0},
+            {1, 0}
+        };
+        
+        for (int[] dir: direcciones){
+            for (int i = 1; i <= rango; i++){
+                int nuevaPosX = getPosicion_x() + dir[0] * i;
+                int nuevaPosY = getPosicion_y() + dir[1] * i;
+                
+                if (nuevaPosX < 0 || nuevaPosX >= mapa.getColumnas()) break;
+                if (nuevaPosY < 0 || nuevaPosY >= mapa.getFilas()) break;
+                
+                Celda celda = mapa.getCelda(nuevaPosY, nuevaPosX);
+                
+                if (celda.getTipoCelda() == TipoCelda.PARED_FIJA) break;
+                if (celda.getTipoCelda() == TipoCelda.PARED_DESTRUCTIBLE){
+                    celda.setTipoCelda(TipoCelda.VACIO);
+                    break;
+                }
+            }
+        }
+        dueño.eliminarBomba(this);
+    }
+    
 }
+
+

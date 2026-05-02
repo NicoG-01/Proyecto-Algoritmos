@@ -6,6 +6,9 @@
 
     import com.mycompany.modelo.Celda;
     import com.mycompany.modelo.Editor;
+import com.mycompany.modelo.Item;
+import com.mycompany.modelo.Mapa;
+import com.mycompany.modelo.Sesion;
     import com.mycompany.modelo.TipoCelda;
     import com.mycompany.modelo.items.itemBomba;
     import com.mycompany.modelo.items.itemLlama;
@@ -35,6 +38,9 @@
         private Image imgVacio;
         private Image imgFija;
         private Image imgDestructible;
+        private Image imgBomba;
+        private Image imgVelocidad;
+        private Image imgLlama;
         
         private Editor editor;
         private Canvas canvas;
@@ -43,8 +49,7 @@
         /**
          * Initializes the controller class.
          */
-        @FXML
-        private BorderPane vistaEditor;
+        @FXML private BorderPane vistaEditor;
         @FXML private ToggleButton btnVacio;
         @FXML private ToggleButton btnParedFija;
         @FXML private ToggleButton btnParedDestructible;
@@ -54,7 +59,9 @@
 
         @Override
         public void initialize(URL url, ResourceBundle rb) {
-            editor = new Editor(11, 13, "Mapa-Dev");
+            Mapa mapaGuardado = Sesion.getInstancia().getMapa();
+            
+            editor = new Editor(mapaGuardado);
             //editor = new Editor(2, 2, "Mapa-Dev");
             
             //editor.getMapa().getCelda(0, 0).setTipoCelda(TipoCelda.PARED_FIJA);
@@ -67,6 +74,15 @@
             
             imgDestructible = new Image(getClass().getResourceAsStream(
                 "/com/mycompany/vista/sprites/DESTRUCTIBLE.jpeg"));
+            
+            imgBomba = new Image(getClass().getResourceAsStream(
+                "/com/mycompany/vista/sprites/BOMBA.jpeg"));
+            
+            imgVelocidad = new Image(getClass().getResourceAsStream(
+                "/com/mycompany/vista/sprites/VELOCIDAD.jpeg"));
+            
+            imgLlama = new Image(getClass().getResourceAsStream(
+                "/com/mycompany/vista/sprites/LLAMA.jpeg"));
             
             System.out.println("Vacio: " + imgVacio.isError());
             System.out.println("Fija: " + imgFija.isError());
@@ -143,6 +159,20 @@
                         case PARED_DESTRUCTIBLE:
                             gc.drawImage(imgDestructible, c * 48, f * 48, 48, 48);
                             break;
+                    }
+                    
+                    if (celda.tieneItem()) {
+                        Item item = celda.getItem();
+                        
+                        Image imgItem = null;
+                        
+                        if (item instanceof itemBomba) imgItem = imgBomba;
+                        else if (item instanceof itemLlama) imgItem = imgLlama;
+                        else if (item instanceof itemVelocidad) imgItem = imgVelocidad;
+                        
+                        if (imgItem != null) {
+                            gc.drawImage(imgItem, c*48 +8, f*48 +8, 32, 32);
+                        }
                     }
                     gc.setStroke(Color.DARKGRAY);
                     gc.strokeRect(c * 48 , f * 48, 48, 48);

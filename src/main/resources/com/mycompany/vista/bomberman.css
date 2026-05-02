@@ -1,0 +1,108 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 27/04/2026, 12:10:18 a. m.
+    Author     : diego
+*/
+
+/* ===== FONDO GENERAL ===== */
+.root {
+    -fx-background-color: #000000;
+    -fx-font-family: "Courier New";
+}
+
+/* ===== BOTONES ===== */
+.button {
+    -fx-background-color: #000000;
+    -fx-text-fill: #FFD700;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2px;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 14px;
+    -fx-padding: 8 20 8 20;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #000000;
+    -fx-border-color: #FF8C00;
+}
+
+.button:pressed {
+    -fx-background-color: #FF8C00;
+    -fx-text-fill: #000000;
+    -fx-border-color: #FFD700;
+}
+
+.button:disabled {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #555555;
+    -fx-border-color: #555555;
+    -fx-opacity: 0.6;
+}
+
+/* ===== TOGGLE BUTTONS ===== */
+.toggle-button {
+    -fx-background-color: #000000;
+    -fx-text-fill: #FFD700;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2px;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 12px;
+    -fx-padding: 6 12 6 12;
+    -fx-cursor: hand;
+}
+
+.toggle-button:hover {
+    -fx-background-color: #1a1a00;
+    -fx-border-color: #FF8C00;
+}
+
+.toggle-button:selected {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #000000;
+    -fx-border-color: #FF8C00;
+}
+
+/* ===== LABELS ===== */
+.label {
+    -fx-text-fill: #FFD700;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 13px;
+}
+
+.titulo {
+    -fx-text-fill: #FFD700;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #FF8C00, 15, 0.7, 0, 0);
+}
+
+/* ===== TEXT FIELDS ===== */
+.text-field {
+    -fx-background-color: #0d0d0d;
+    -fx-text-fill: #FFD700;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2px;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 13px;
+    -fx-padding: 6 10 6 10;
+    -fx-prompt-text-fill: #806600;
+}
+
+.text-field:focused {
+    -fx-border-color: #FF8C00;
+    -fx-effect: dropshadow(gaussian, #FF8C00, 8, 0.4, 0, 0);
+}
+
+/* ===== SEPARADORES DE SECCIÓN ===== */
+.seccion {
+    -fx-text-fill: #FF8C00;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}

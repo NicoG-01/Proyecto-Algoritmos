@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="vistaEditor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.vista.EditorController">
+<BorderPane fx:id="vistaEditor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="872.0" stylesheets="@bomberman.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.vista.EditorController">
    <top>
-      <HBox alignment="CENTER" prefHeight="79.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="79.0" prefWidth="600.0" spacing="20.0" stylesheets="@editor.css" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#guardarMapa" text="Guardar" />
             <Button mnemonicParsing="false" onAction="#cargarMapa" text="Cargar" />
@@ -22,12 +22,12 @@
          </BorderPane.margin></HBox>
    </top>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="550.0" prefWidth="159.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="---Paredes---" />
             <ToggleButton fx:id="btnVacio" mnemonicParsing="false" text="Vacio" />
             <ToggleButton fx:id="btnParedFija" mnemonicParsing="false" text="Fijo" />
-            <ToggleButton fx:id="btnParedDestructible" mnemonicParsing="false" text="Destructible" />
+            <ToggleButton fx:id="btnParedDestructible" mnemonicParsing="false" prefHeight="31.0" prefWidth="131.0" text="Destructible" />
             <Label text="---Items---" />
             <ToggleButton fx:id="btnItemBomba" mnemonicParsing="false" text="Bomba" />
             <ToggleButton fx:id="btnItemLlama" mnemonicParsing="false" text="Llama" />

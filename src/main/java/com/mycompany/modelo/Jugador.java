@@ -4,6 +4,9 @@
  */
 package com.mycompany.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author ASUS
@@ -19,6 +22,7 @@ public class Jugador {
     private int max_bomba;
     private int rango_bomba;
     private boolean vivo;
+    private List<Bomba> bombasActivas = new ArrayList();
     
     public Jugador(){
         this.posicion_x = -1;
@@ -112,6 +116,25 @@ public class Jugador {
             cogerItem(celda.getItem());
             celda.setItem(null);
         }    
-    }                
+    }        
+    
+    public void eliminarBomba(Bomba bomba){
+        bombasActivas.remove(bomba);
+    }
+    
+    public int getBombasActivas(){
+        return bombasActivas.size();
+    }
+    
+    public Bomba colocarBomba(){
+        if (bombasActivas.size() >= max_bomba){
+            return null;
+        } else {
+            Bomba bomba = new Bomba(posicion_x, posicion_y, rango_bomba, this);
+            bombasActivas.add(bomba);
+        
+            return bomba;
+        }
+    }
 }
 

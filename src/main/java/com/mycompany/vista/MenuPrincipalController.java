@@ -31,7 +31,7 @@ public class MenuPrincipalController implements Initializable {
     
     @FXML
     private void nuevoJuego(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/vista/Editor.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/vista/Mapa.fxml"));
         Scene scene = new Scene(loader.load());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
