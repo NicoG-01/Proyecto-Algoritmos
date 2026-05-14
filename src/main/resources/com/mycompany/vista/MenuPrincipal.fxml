@@ -13,11 +13,11 @@
    </stylesheets>
    <StackPane prefHeight="576.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-         <Label alignment="CENTER" contentDisplay="CENTER" styleClass="titulo" text="BOMBERMAN" StackPane.alignment="TOP_CENTER">
+         <!--<Label alignment="CENTER" contentDisplay="CENTER" styleClass="titulo" text="BOMBERMAN" StackPane.alignment="TOP_CENTER">
             <StackPane.margin>
                <Insets top="20.0" />
             </StackPane.margin>
-         </Label>
+         </Label>-->
          <Button alignment="CENTER" contentDisplay="CENTER" onAction="#salir" styleClass="boton" text="Salir" StackPane.alignment="BOTTOM_CENTER">
             <StackPane.margin>
                <Insets bottom="50.0" />

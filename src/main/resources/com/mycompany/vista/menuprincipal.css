@@ -7,11 +7,13 @@
 }
 
 .root {
-    /* Path is relative to the CSS file location */
-    -fx-background-image: url("imagenes/Menu.jpg");
-    -fx-background-repeat: no-repeat;
+    -fx-background-image: url("imagenes/MenuB.png");
+    -fx-min-height: 100vh;
+    -fx-width: 100%;
     -fx-background-size: cover;
-    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-backgrou-attachment: fixed;
 }
 
 .titulo {
@@ -31,6 +33,7 @@
     -fx-border-width: 2px;
     -fx-padding: 10 30 10 30;
     -fx-cursor: hand;
+
 }
 
 .boton:hover {
