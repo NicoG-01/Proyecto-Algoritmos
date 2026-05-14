@@ -19,7 +19,6 @@ public class Jugador {
     private String nombre;
     private KeyCode[] teclas = new KeyCode[5];
     private int velocidad;
-    private int vida;
     private int max_bomba;
     private int rango_bomba;
     private boolean vivo;
@@ -31,7 +30,6 @@ public class Jugador {
         this.nombre = null;
         this.teclas = null;
         this.velocidad = 1;
-        this.vida = 5;
         this.max_bomba = 1;
         this.rango_bomba = 1;
         this.vivo = true;

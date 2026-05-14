@@ -123,7 +123,7 @@ public class JuegoController implements Initializable {
         
         Mapa mapa = Sesion.getInstancia().getMapa();
         
-        juego = new Juego(mapa, null, null, 0, 'J');
+        juego = new Juego(mapa, null, null, 'J');
         juego.iniciarJuego(mapa);
         
         canvas = new Canvas(

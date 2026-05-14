@@ -16,17 +16,15 @@ public class Juego {
     private Mapa mapa;
     private Jugador jugador1;
     private Jugador jugador2;
-    private int tiempo;
     private char estado; 
     private List<Bomba> bombasGame = new ArrayList<>();
     private List<int[]> ultimasExplosiones = new ArrayList<>();
     private int[] ultimoCentroExplosion = new int[2];
     
-    public Juego(Mapa mapa, Jugador jugador1, Jugador jugador2, int tiempo, char estado){
+    public Juego(Mapa mapa, Jugador jugador1, Jugador jugador2, char estado){
         this.mapa = mapa;
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
-        this.tiempo = tiempo;
         this.estado = 'J';
     }
     
@@ -40,10 +38,6 @@ public class Juego {
     
     public Jugador getJugador2() {
         return jugador2;
-    }
-    
-    public int getTiempo() {
-        return tiempo;
     }
     
     public char getEstado() {
