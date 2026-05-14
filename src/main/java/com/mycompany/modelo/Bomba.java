@@ -4,6 +4,9 @@
  */
 package com.mycompany.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author ASUS
@@ -19,7 +22,7 @@ public class Bomba {
         this.posicion_x = x;
         this.posicion_y = y;
         this.rango = rango;
-        this.temporizador = 3;
+        this.temporizador = 20;
         this.dueño = dueño;
     }
     
@@ -52,7 +55,8 @@ public class Bomba {
             temporizador --;
     }
     
-    public void explotar(Mapa mapa){
+    public List<int[]> explotar(Mapa mapa){
+        List<int[]> celdasAfectadas = new ArrayList<>();
         int[][]direcciones = {
             {0, -1},
             {0, 1},
@@ -71,13 +75,19 @@ public class Bomba {
                 Celda celda = mapa.getCelda(nuevaPosY, nuevaPosX);
                 
                 if (celda.getTipoCelda() == TipoCelda.PARED_FIJA) break;
-                if (celda.getTipoCelda() == TipoCelda.PARED_DESTRUCTIBLE){
-                    celda.setTipoCelda(TipoCelda.VACIO);
+                if (celda.getTipoCelda() == TipoCelda.PARED_DESTRUCTIBLE) {
+                    celda.setVida(celda.getVida() - 1);
+                    if (celda.getVida() <= 0) {
+                        celda.setTipoCelda(TipoCelda.VACIO);
+                        celdasAfectadas.add(new int[]{nuevaPosX, nuevaPosY});
+                    }
                     break;
                 }
+                celdasAfectadas.add(new int[]{nuevaPosX, nuevaPosY});
             }
         }
         dueño.eliminarBomba(this);
+        return celdasAfectadas;
     }
     
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.vista.MenuPrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.vista.MenuPrincipalController">
    <stylesheets>
       <URL value="@menuprincipal.css" />
    </stylesheets>
@@ -18,7 +18,7 @@
                <Insets top="20.0" />
             </StackPane.margin>
          </Label>
-         <Button alignment="CENTER" contentDisplay="CENTER" styleClass="boton" text="Salir" StackPane.alignment="BOTTOM_CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" onAction="#salir" styleClass="boton" text="Salir" StackPane.alignment="BOTTOM_CENTER">
             <StackPane.margin>
                <Insets bottom="50.0" />
             </StackPane.margin>
@@ -28,7 +28,7 @@
                <Insets bottom="200.0" />
             </StackPane.margin>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" styleClass="boton" text="Cargar" StackPane.alignment="BOTTOM_CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" onAction="#cargarMapa" styleClass="boton" text="Cargar" StackPane.alignment="BOTTOM_CENTER">
             <StackPane.margin>
                <Insets bottom="125.0" />
             </StackPane.margin>

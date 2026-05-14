@@ -19,6 +19,8 @@ public class Juego {
     private int tiempo;
     private char estado; 
     private List<Bomba> bombasGame = new ArrayList<>();
+    private List<int[]> ultimasExplosiones = new ArrayList<>();
+    private int[] ultimoCentroExplosion = new int[2];
     
     public Juego(Mapa mapa, Jugador jugador1, Jugador jugador2, int tiempo, char estado){
         this.mapa = mapa;
@@ -61,6 +63,9 @@ public class Juego {
         Jugador j1 = new Jugador();
         Jugador j2 = new Jugador();
         
+        j1.setNombre("Jugador 1");
+        j2.setNombre("Jugador 2");
+        
         j1.setTeclas(new KeyCode[] {
             KeyCode.W,
             KeyCode.S, 
@@ -74,7 +79,7 @@ public class Juego {
             KeyCode.DOWN,
             KeyCode.LEFT, 
             KeyCode.RIGHT, 
-            KeyCode.COLORED_KEY_0  
+            KeyCode.NUMPAD0  
         });
         
         j1.setPosicionX(0);
@@ -88,13 +93,31 @@ public class Juego {
         this.jugador2 = j2;
     }
     
+    public int[] getUltimoCentroExplosion() {
+        return ultimoCentroExplosion;
+    }
+
     public void actualizarJuego(){
         for (int i = bombasGame.size() - 1; i >= 0; i--){
             Bomba bomba = bombasGame.get(i);
             bomba.actualizarTemp();
             if (bomba.bombaExplotada()) {
-                bomba.explotar(mapa);
+                List<int[]> celdasAfectadas = bomba.explotar(mapa);
+                ultimasExplosiones.clear();
+                ultimasExplosiones.addAll(celdasAfectadas);
+                ultimoCentroExplosion = new int[]{bomba.getPosicion_x(), bomba.getPosicion_y()};
                 bombasGame.remove(i);
+                
+                for (int[] celda : celdasAfectadas){
+                    if (jugador1.getPosicionX() == celda[0] &&
+                        jugador1.getPosicionY() == celda[1]) {
+                        jugador1.setVivo(false);
+                    }
+                    if (jugador2.getPosicionX() == celda[0] &&
+                        jugador2.getPosicionY() == celda[1]) {
+                        jugador2.setVivo(false);
+                    }
+                }
             }
         }
         verificarGanador();
@@ -110,5 +133,16 @@ public class Juego {
         else 
             return null;
     }
+    
+    public List<Bomba> getBombasGame() {
+        return bombasGame;
+    }
+    
+    public List<int[]> getUltimasExplosiones() {
+        return ultimasExplosiones;
+    }
    
+    public void limpiarExplosiones() {
+        ultimasExplosiones.clear();
+    }
 }

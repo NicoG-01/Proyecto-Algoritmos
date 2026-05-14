@@ -13,17 +13,22 @@ public class Celda {
     private TipoCelda tipo_celda;
     private Item item; 
     private boolean tiene_bomba;
+    private int vida; 
     
     public Celda(){
         this.tipo_celda = TipoCelda.VACIO;
         this.item = null;
         this.tiene_bomba = false;
+        this.vida = 0;
     }
     
     public Celda(TipoCelda pTipo_celda){
         this.tipo_celda = pTipo_celda;
         this.item = null;
         this.tiene_bomba = false;
+        if (pTipo_celda == TipoCelda.PARED_DESTRUCTIBLE){
+            this.vida = 3;
+        }
     }
     
     public TipoCelda getTipoCelda(){
@@ -32,6 +37,11 @@ public class Celda {
    
     public void setTipoCelda(TipoCelda pCelda){
         this.tipo_celda = pCelda;
+        if (pCelda == TipoCelda.PARED_DESTRUCTIBLE) {
+            this.vida = 3;
+        } else {
+            this.vida = 0;
+        }
     }
     
     public Item getItem(){
@@ -44,5 +54,13 @@ public class Celda {
     
     public boolean tieneItem(){
         return this.item != null;
+    }
+    
+    public int getVida(){
+        return vida;
+    }
+    
+    public void setVida(int pVida){
+        this.vida = pVida;
     }
 }

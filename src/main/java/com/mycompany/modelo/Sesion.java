@@ -47,4 +47,9 @@ public class Sesion {
     public void setPersonajeJ2(int p){ 
         this.personajeJ2 = p; 
     }
+    
+    public String getCarpetaPersonaje(int numPersonaje){
+        return "/com/mycompany/vista/sprites/personajes/personaje \" \n" + 
+                numPersonaje + "/Walking/";
+    }
 }

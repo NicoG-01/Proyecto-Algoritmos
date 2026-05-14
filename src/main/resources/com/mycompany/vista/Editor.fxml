@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="vistaEditor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="872.0" stylesheets="@bomberman.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.vista.EditorController">
+<BorderPane fx:id="vistaEditor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1024.0" stylesheets="@bomberman.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.vista.EditorController">
    <top>
       <HBox alignment="CENTER" prefHeight="79.0" prefWidth="600.0" spacing="20.0" stylesheets="@editor.css" BorderPane.alignment="CENTER">
          <children>

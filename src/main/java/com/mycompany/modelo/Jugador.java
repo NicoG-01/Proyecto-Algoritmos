@@ -93,6 +93,10 @@ public class Jugador {
         this.nombre = nombre;
     }
     
+    public KeyCode[] getTeclas(){
+        return teclas;
+    }
+    
     public void cogerItem(Item ventaja){
         ventaja.aplicarEfecto(this);               
     }

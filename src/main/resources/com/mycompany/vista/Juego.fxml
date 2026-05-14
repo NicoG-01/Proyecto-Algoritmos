@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.vista.JuegoController">
+<BorderPane prefHeight="650.0" prefWidth="1024.0" stylesheets="@bomberman.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.vista.JuegoController">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_RIGHT">
          <children>
-            <Label fx:id="lblTiempo" text="TIEMPO: 0" />
-            <Label fx:id="lblJ1" text="JUGADOR 1" />
-            <Label fx:id="lblJ2" text="JUGADOR 2" />
+            <Label fx:id="lblJ1" text="JUGADOR 1">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin></Label>
+            <Label fx:id="lblGanador" text="Label" visible="false" />
+            <Label fx:id="lblJ2" prefHeight="16.0" prefWidth="72.0" text="JUGADOR 2">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Label>
          </children>
       </HBox>
    </top>
    <center>
-      <Pane fx:id="paneJuego" prefHeight="350.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+    <StackPane fx:id="paneJuego" prefHeight="575.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

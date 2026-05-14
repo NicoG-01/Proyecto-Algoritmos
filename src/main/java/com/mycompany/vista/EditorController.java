@@ -4,33 +4,33 @@
      */
     package com.mycompany.vista;
 
-    import com.mycompany.modelo.Celda;
-    import com.mycompany.modelo.Editor;
+import com.mycompany.modelo.Celda;
+import com.mycompany.modelo.Editor;
 import com.mycompany.modelo.Item;
 import com.mycompany.modelo.Mapa;
 import com.mycompany.modelo.Sesion;
-    import com.mycompany.modelo.TipoCelda;
-    import com.mycompany.modelo.items.itemBomba;
-    import com.mycompany.modelo.items.itemLlama;
-    import com.mycompany.modelo.items.itemVelocidad;
-    import javafx.scene.image.Image;
-    import java.io.File;
-    import java.io.IOException;
-    import java.net.URL;
-    import java.util.ResourceBundle;
-    import javafx.event.ActionEvent;
-    import javafx.fxml.FXML;
+import com.mycompany.modelo.TipoCelda;
+import com.mycompany.modelo.items.itemBomba;
+import com.mycompany.modelo.items.itemLlama;
+import com.mycompany.modelo.items.itemVelocidad;
+import javafx.scene.image.Image;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-    import javafx.fxml.Initializable;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-    import javafx.scene.canvas.Canvas;
-    import javafx.scene.canvas.GraphicsContext;
-    import javafx.scene.control.ToggleButton;
-    import javafx.scene.control.ToggleGroup;
-    import javafx.scene.layout.BorderPane;
-    import javafx.scene.paint.Color;
-    import javafx.stage.FileChooser;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
     /**
@@ -42,6 +42,10 @@ import javafx.stage.Stage;
         private Image imgVacio;
         private Image imgFija;
         private Image imgDestructible;
+        
+        private Image imgDestructible2;
+        private Image imgDestructible3;
+        
         private Image imgBomba;
         private Image imgVelocidad;
         private Image imgLlama;
@@ -78,6 +82,12 @@ import javafx.stage.Stage;
             
             imgDestructible = new Image(getClass().getResourceAsStream(
                 "/com/mycompany/vista/sprites/DESTRUCTIBLE.jpeg"));
+            
+            imgDestructible2 = new Image(getClass().getResourceAsStream(
+                "/com/mycompany/vista/sprites/DESTRUCTIBLE 2.jpeg"));
+            
+            imgDestructible3 = new Image(getClass().getResourceAsStream(
+                "/com/mycompany/vista/sprites/DESTRUCTIBLE 3.jpeg"));
             
             imgBomba = new Image(getClass().getResourceAsStream(
                 "/com/mycompany/vista/sprites/BOMBA.jpeg"));
@@ -161,7 +171,12 @@ import javafx.stage.Stage;
                             gc.drawImage(imgFija, c * 48, f * 48, 48, 48);
                             break;
                         case PARED_DESTRUCTIBLE:
-                            gc.drawImage(imgDestructible, c * 48, f * 48, 48, 48);
+                            if (celda.getVida() == 3) 
+                                gc.drawImage(imgDestructible, c*48, f*48, 48, 48);
+                            else if (celda.getVida() == 2) 
+                                gc.drawImage(imgDestructible2, c*48, f*48, 48, 48);
+                            else 
+                                gc.drawImage(imgDestructible3, c*48, f*48, 48, 48);
                             break;
                     }
                     
@@ -205,6 +220,7 @@ import javafx.stage.Stage;
             if (archivo != null){
                 try {
                     editor.cargar(archivo.getAbsolutePath());
+                    Sesion.getInstancia().setMapa(editor.getMapa());
                     dibujarMapa();
                 } catch (IOException e) {
                     System.err.println("Error al cargar el mapa: " + e.getMessage());
